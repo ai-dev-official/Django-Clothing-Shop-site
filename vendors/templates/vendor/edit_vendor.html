@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit vendor | {% endblock %}
+
+{% block content %}
+
+<section class="accessory section bd-container" id="accessory">
+    <div class="category__container   main__container container__grid">
+      <h2 class="section-title">Update Vendor Information</h2>
+      <div class="main__form__max">
+  
+      <form method="POST" enctype="multipart/form-data" class="signup_form mr-2 ml-2">
+        {% csrf_token %}
+        <fieldset>
+        
+          <div class="form-row">
+              <div class="form-group col-md-6 mb-0">
+                {{ form.account_name | as_crispy_field }}
+              </div>
+              <div class="form-group col-md-6 mb-0">
+                {{ form.bank_name | as_crispy_field }}
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12 mb-0">
+                {{ form.bank_IBAN | as_crispy_field }}
+              </div>
+              
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12 mb-0">
+                {{ form.bank_bic | as_crispy_field }}
+              </div>
+              
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.county | as_crispy_field }}
+              </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 mb-0">
+                {{ form.gender | as_crispy_field }}
+              </div>
+              
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12 mb-0">
+                <button type="submit" class="alt__button">Submit</button>
+                  <h6 class="mt-3">Already a Vendor? <a href="{% url 'login' %}">Login In</a></h6>
+              </div>
+            </div>
+        </fieldset>
+        
+         
+      </form>
+      </div>
+    </div>
+    </section>
+    
+   
+
+    {% endblock %}
